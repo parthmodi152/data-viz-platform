@@ -1,5 +1,5 @@
 
-# Visual Insight Flow - Technical Assessment
+# Data Viz Platform - Technical Assessment
 
 ### Login Screen
 ![image](https://github.com/user-attachments/assets/f18e82eb-3f9b-495b-bec1-8ceb66857eab)
@@ -9,6 +9,15 @@
 
 ### Edit Variable Slide Over
 ![image](https://github.com/user-attachments/assets/8dd7917d-9042-4cd3-9e3f-6ea049431dd7)
+
+### Responsive
+
+#### Tablet
+![image](https://github.com/user-attachments/assets/aebfa002-3b55-496f-bf18-3969b8dc5b79)
+
+#### Mobile
+![image](https://github.com/user-attachments/assets/75089bc0-05a4-47da-966f-c3cdc15fdfc4)
+
 
 
 
