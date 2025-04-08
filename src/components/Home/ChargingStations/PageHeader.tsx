@@ -29,7 +29,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         <h1 className="text-[24px] sm:text-[32px] font-bold leading-[150%] font-roobert text-white">{title}</h1>
       </div>
       
-      <div className="flex items-center space-x-2 justify-center sm:justify-start">
+      <div className="flex items-center space-x-2 justify-start">
         <button 
             onClick={onHistoryClick} 
             className="p-2 rounded-[5px] bg-[#242424] border border-[#5A5A5A] transition-colors hover:bg-theme-light-gray"
