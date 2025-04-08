@@ -1,6 +1,17 @@
 
 # Visual Insight Flow - Technical Assessment
 
+### Login Screen
+![image](https://github.com/user-attachments/assets/f18e82eb-3f9b-495b-bec1-8ceb66857eab)
+
+### Dashboard
+![image](https://github.com/user-attachments/assets/07f8065f-81e7-4d24-a685-5bb139ba94ab)
+
+### Edit Variable Slide Over
+![image](https://github.com/user-attachments/assets/8dd7917d-9042-4cd3-9e3f-6ea049431dd7)
+
+
+
 ## Setup Instructions
 
 1. Clone the repository
