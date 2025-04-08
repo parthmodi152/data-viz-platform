@@ -57,7 +57,7 @@ const VariablesContainer: React.FC<VariablesContainerProps> = ({
   };
   
   return (
-    <div className="border rounded-[5px] overflow-y-auto flex flex-col">
+    <div className="bg-[#161618] border border-gray-1 rounded-[5px] overflow-y-auto flex flex-col">
       <div className="p-[20px] sm:p-[30px]">
         {categories.map(category => (
           <div key={category.id} className="mb-6">
