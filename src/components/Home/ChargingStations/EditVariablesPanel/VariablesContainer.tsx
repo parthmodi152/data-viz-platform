@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { VariableCategory } from './types';
 import VariableOption from './VariableOption';
 import VariableContext from './VariableContext';
+import { useIsMobile } from '../../../../hooks/use-mobile';
 
 export interface VariablesContainerProps {
   categories: VariableCategory[];
@@ -17,9 +18,13 @@ const VariablesContainer: React.FC<VariablesContainerProps> = ({
   const [activeContextWindow, setActiveContextWindow] = useState<string | null>(null);
   const [hoverTarget, setHoverTarget] = useState<string | null>(null);
   const hoverTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const isMobile = useIsMobile();
   
-  // Handle hover with delay
+  // Handle hover with delay (desktop only)
   useEffect(() => {
+    // Skip hover logic on mobile
+    if (isMobile) return;
+    
     // Clear any existing timer
     if (hoverTimerRef.current) {
       clearTimeout(hoverTimerRef.current);
@@ -43,7 +48,19 @@ const VariablesContainer: React.FC<VariablesContainerProps> = ({
         hoverTimerRef.current = null;
       }
     };
-  }, [hoverTarget]);
+  }, [hoverTarget, isMobile]);
+  
+  // Custom toggle handler that also manages context window on mobile
+  const handleToggleSelect = (varId: string, e: React.MouseEvent) => {
+    onToggleSelect(varId, e);
+    
+    // On mobile, toggle context window when selecting/deselecting
+    if (isMobile) {
+      setActiveContextWindow(prevActive => 
+        prevActive === varId ? null : varId
+      );
+    }
+  };
   
   // Find the active variable details
   const getActiveVariable = () => {
@@ -67,13 +84,13 @@ const VariablesContainer: React.FC<VariablesContainerProps> = ({
                 <div 
                   key={variable.id} 
                   className="group"
-                  onMouseEnter={() => setHoverTarget(variable.id)}
-                  onMouseLeave={() => setHoverTarget(null)}
+                  onMouseEnter={() => !isMobile && setHoverTarget(variable.id)}
+                  onMouseLeave={() => !isMobile && setHoverTarget(null)}
                 >
                   <VariableOption
                     name={variable.name}
                     isSelected={selectedVariables.includes(variable.id)}
-                    onToggleSelect={(e) => onToggleSelect(variable.id, e)}
+                    onToggleSelect={(e) => handleToggleSelect(variable.id, e)}
                   />
                 </div>
               ))}

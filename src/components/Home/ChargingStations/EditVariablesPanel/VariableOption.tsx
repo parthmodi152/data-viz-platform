@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Check, Plus } from 'lucide-react';
+import { useIsMobile } from '../../../../hooks/use-mobile';
 
 export interface VariableOptionProps {
   name: string;
@@ -12,6 +13,8 @@ const VariableOption: React.FC<VariableOptionProps> = ({
   isSelected, 
   onToggleSelect,
 }) => {
+
+  const isMobile = useIsMobile();
   return (
     <button
       className={`
@@ -21,8 +24,9 @@ const VariableOption: React.FC<VariableOptionProps> = ({
           ? 'text-green-1 bg-[#CCFF00] bg-opacity-10 border border-green-2'
           : 'text-[#d5d5d5] bg-[#595959] bg-opacity-30 border-[0.5px] border-[#EEEEEE]'
         }
-        group-hover:text-green-1 group-hover:bg-[#282E16] group-hover:border group-hover:border-green-2 
-        group-hover:backdrop-blur-md group-hover:shadow-[0_1px_4px_rgba(200,233,114,0.25)]
+          ${!isMobile && `group-hover:text-green-1 group-hover:bg-[#282E16] group-hover:border group-hover:border-green-2 
+        group-hover:backdrop-blur-md group-hover:shadow-[0_1px_4px_rgba(200,233,114,0.25)]`}
+        
       `}
       onClick={onToggleSelect}
     >
