@@ -60,10 +60,3 @@
 ## Time Spent
 
 Approximately 5-6 hours
-
-## Local Development
-
-1. Clone the repository
-2. Install dependencies: `npm install`
-3. Start development server: `npm run dev`
-4. Application will be available at http://localhost:3000
